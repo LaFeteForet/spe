@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+<title>Speed Speedy - Fête Forêt</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="page active" id="page0">
+  <img src="logo_la_fete.png" alt="Logo Fête" id="logoPage0">
+  <div class="photo-gallery">
+    <img src="Photo1.png" alt="Photo1">
+    <img src="Photo2.png" alt="Photo2">
+    <img src="Photo3.png" alt="Photo3">
+  </div>
+  <button class="nextBtn" onclick="goTo('accueil')">Suivant →</button>
+</div>
+
+<div class="page" id="accueil">
+  <div class="logo-zone">
+    <img id="logo" src="logo_la_fete.png" alt="Logo Fête Forêt">
+    <h1 id="titreJeu">Speed Speedy</h1>
+    <p class="regle-jeu">Bienvenue dans l'univers de la Fête Forêt</p>
+  </div>
+  <div class="accueil-buttons">
+    <button onclick="goTo('modeJeux')">Mode de jeu +</button>
+    <button onclick="openPDF()">Règles</button>
+    <button onclick="startTournament()">Tournois</button>
+  </div>
+</div>
+
+<div class="page" id="modeJeux">
+  <button class="backBtn" onclick="goTo('accueil')">←</button>
+  <h3>Mode de jeu +</h3>
+  <div class="accueil-buttons">
+    <button onclick="startSpeedyGame(3, 30, 'Speed Speedy - 2 / 3 joueurs')">2 / 3 joueurs</button>
+    <button onclick="startSpeedyGame(4, 40, 'Speed Speedy - 4 joueurs')">4 joueurs</button>
+  </div>
+</div>
+
+<div class="page" id="pageSpeedyGame">
+  <button class="backBtn" onclick="leaveSpeedyGame()">←</button>
+  <h3 id="speedyTitle">Speed Speedy</h3>
+
+  <div id="speedyImageArea" class="speedy-image-area">
+    <p id="speedyStartHint" style="display: none;">Appuyez sur Démarrer pour lancer une image</p>
+    <div id="speedyCountdown" class="speedy-countdown" style="display: none;">3</div>
+    <img id="speedyCardImage" src="1.png" alt="Carte Speed Speedy">
+  </div>
+
+  <button type="button" id="speedyStartBtn" class="speedy-start-btn" onclick="triggerSpeedy4Image()" style="display: none;">Démarrer</button>
+
+  <div id="speedyPlayersList" class="speedy-players-list"></div>
+</div>
+
+<div class="page" id="tournament">
+  <h3>Tournoi</h3>
+  <div id="tournamentBracket" class="tournament-container"></div>
+  <button class="backBtn" onclick="goTo('accueil')">←</button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
